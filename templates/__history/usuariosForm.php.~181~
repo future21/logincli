@@ -1,0 +1,64 @@
+<?php
+require_once ("cal_class.php");
+?>
+<h2><?php echo $view->label ?></h2>
+<form name ="client" id="client" method="POST" action="main.php">
+    <input type="hidden" name="id" id="id" value="<?php print $view->client->getId() ?>">
+    <div>
+        <label>Cliente</label>
+        <input type="text" name="cliente" id="cliente" value = "<?php print $view->client->getCliente() ?>">
+    </div>
+    <div>
+        <label>Tiempo</label>
+        <input type="text" name="tiempo" id="tiempo"value = "<?php print $view->client->getTiempo() ?>">
+    </div>
+
+<?php
+echo '<script language="javascript" type="text/javascript" src="resources/calendar.core.js"></script>';
+//create the instance of calendar
+$calendario=new Calendar("it");
+//$calendario->grandezza_carattere="Small";
+//print the calendar in italian version of date i.e.: dd/mm/yyyy
+$calendario->CreateCalendar(date("d/m/Y"),"uno",date("m/d/Y"),"12/31/2006");
+echo "<hr>";
+//set a background for the week days
+$calendario->sfondo_settimana="Green";
+//set only a few days of the week linkable
+$calendario->giorni_settimana_linkabili="2,3,5";
+//print the calendar in english version of date i.e.: mm/dd/yyyy
+$calendario->CreateCalendar(date("m/d/Y"),"due",date("m/d/Y"),"12/31/2005",1);
+?>
+<table width="50%" align="center">
+<tr><td>Example of text</td><td>
+<?php
+//print the calendar in italian version of date i.e.: dd/mm/yyyy
+$calendario->sfondo_settimana="#ff0066";
+$calendario->CreateCalendar("20/11/2005","tre",date("m/d/Y"),"12/31/2007");
+?></td><tr></table>
+
+
+    <div>
+        <label>Email</label>
+        <input type="text" name="email" id="email" value = "<?php print $view->client->getEmail() ?>">
+    </div>
+
+    <div>
+        <label>Password</label>
+        <input type="text" name="pass" id="pass" value = "<?php print $view->client->getPass() ?>">
+    </div>
+    <!--
+    <div>
+        <label>Salt</label>
+        <input type="text" name="salt" id="salt" value = "<?php print $view->client->getSalt() ?>">
+    </div>
+    -->
+    <div>
+        <label>Creado:</label><?php print $view->client->getCreated_at() ?>
+        <!--<input type="text" name="created_at" id="created_at" value = "<?php print $view->client->getCreated_at() ?>">-->
+    </div>
+    <div class="buttonsBar">
+        <!--<input id="pass" type="button" name="pass" value ="Password" />-->
+        <input id="cancel" type="button" name="cancel" value ="Cancelar" />
+        <input id="submit" type="submit" name="submit" value ="Guardar" />
+    </div>
+</form>

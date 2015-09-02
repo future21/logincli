@@ -1,0 +1,36 @@
+<h2><?php echo $view->label ?></h2>
+<form name ="client" id="client" method="POST" action="main.php">
+    <input type="hidden" name="id" id="id" value="<?php print $view->client->getId() ?>">
+    <div>
+        <label>Nombre</label>
+        <input type="text" name="nombre" id="nombre" value = "<?php print $view->client->getNombre() ?>">
+    </div>
+    <div>
+        <label>Apellido</label>
+        <input type="text" name="apellido" id="apellido"value = "<?php print $view->client->getApellido() ?>">
+    </div>
+    <div>
+        <label>Empresa</label>
+        <input type="text" name="empresa" id="empresa" value = "<?php print $view->client->getEmpresa() ?>">
+    </div>
+    <div>
+        <label>Departamento</label>
+        <input type="text" name="departamento" id="departamento" value = "<?php print $view->client->getDepartamento() ?>">
+    </div>
+    <div>
+        <label>N. Corto</label>
+        <input type="text" name="n_corto" id="n_corto" value = "<?php print $view->client->getn_corto() ?>">
+    </div>
+    <div>
+        <label>N. Largo</label>
+        <input type="text" name="n_largo" id="n_largo" value = "<?php print $view->client->getn_largo() ?>">
+    </div>
+    <div>
+        <label>Saldo</label>
+        <input type="text" name="saldo" id="saldo" value = "<?php print $view->client->getSaldo() ?>">
+    </div>
+    <div class="buttonsBar">
+        <input id="cancel" type="reset" value ="Cancelar" />
+        <input id="submit" type="submit" name="submit" value ="Guardar" />
+    </div>
+</form>

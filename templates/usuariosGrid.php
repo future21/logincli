@@ -1,0 +1,35 @@
+<div class="bar">
+<a id='new' class='button' href='javascript:void(0);'>Nuevo Usuario</a>
+</div>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_usuarios">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Cliente</th>
+            <th>Tiempo</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Fecha creado</th>
+            <!--<th>Salt</th>-->
+            <th>Editar</th>
+            <th>Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($view->clientes as $cliente); { ?>
+            <tr>
+                <td><?php echo $cliente['id'];?></td>
+                <td><?php echo $cliente['cliente'];?></td>
+                <td><?php echo $cliente['tiempo'];?></td>
+                <td><?php echo $cliente['pass'];?></td>
+                <td><?php echo $cliente['email'];?></td>
+                <!--<td><?php echo $cliente['encrypted_password'];?></td>
+                <td><?php echo $cliente['salt'];?></td>-->
+                <td><?php echo $cliente['created_at'];?></td>
+                <?php
+                echo "<td><a class='edit' href='javascript:void(0);' data-id=". $cliente['id'].">Editar</a></td>";
+                echo "<td><a class='delete' href='javascript:void(0);' data-id=". $cliente["id"].">Borrar</a></td>";
+            echo "</tr>";
+        } ?>
+    </tbody>
+</table>

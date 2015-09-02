@@ -1,0 +1,87 @@
+$(document).ready(function(){ //cuando el html fue cargado iniciar
+
+   $('#tabla_lista_abreviados').dataTable();
+
+
+    //añado la posibilidad de editar al presionar sobre edit
+    $('#tabla_lista_abreviados tbody').on('click','.edit', function(){
+        //this = es el elemento sobre el que se hizo click en este caso el link
+        //obtengo el id que guardamos en data-id
+        var id=$(this).attr('data-id');
+        //preparo los parametros
+        params={};
+        params.id=id;
+        params.action="editClient";
+        $('#popupbox').load('main.php', params,function(){
+            $('#block').show();
+            $('#popupbox').show();
+        })
+
+    });
+
+    $('#tabla_lista_abreviados tbody').on('click','.delete',function(){
+        //obtengo el id que guardamos en data-id
+        var id=$(this).attr('data-id');
+        //preparo los parametros
+        params={};
+        params.id=id;
+        params.action="deleteClient";
+        $('#popupbox').load('main.php', params,function(){
+            $('#content').load('main.php',{action:"refreshGrid"});
+        })
+
+    });
+
+    $('document').on('click','#new',function(){
+        params={};
+        params.action="newClient";
+        $('#popupbox').load('main.php', params,function(){
+            $('#block').show();
+            $('#popupbox').show();
+        })
+    });
+
+    // boton cancelar, uso live en lugar de bind para que tome cualquier boton
+    // nuevo que pueda aparecer
+    $('document').on('click','#cancel',function(){
+        $('#block').hide();
+        $('#popupbox').hide();
+    });
+
+
+     $('document').on('submit','#client',function(){
+
+        var params={};
+
+        params.action='saveClient';
+
+        params.id=$('#id').val();
+
+        params.nombre=$('#nombre').val();
+
+        params.apellido=$('#apellido').val();
+
+        params.empresa=$('#empresa').val();
+
+        params.departamento=$('#departamento').val();
+
+        params.n_corto=$('#n_corto').val();
+
+        params.n_largo=$('#n_largo').val();
+
+        params.saldo=$('#saldo').val();
+
+        $.post('index.php',params,function(){
+
+            $('#block').hide();
+
+            $('#popupbox').hide();
+
+            $('#content').load('main.php',{action:"refreshGrid"});
+
+        })
+        return false;
+     });
+
+});
+

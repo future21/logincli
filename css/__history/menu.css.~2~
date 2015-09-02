@@ -1,0 +1,194 @@
+#nav,#nav ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#nav {
+    background: url('menu_bg.png') no-repeat scroll 0 0 transparent;
+    clear: both;
+    font-size: 12px;
+    height: 58px;
+    padding: 0 0 0 9px;
+    position: relative;
+    width: 957px;
+}
+#nav ul {
+    background-color: #222;
+    border:1px solid #222;
+    border-radius: 0 5px 5px 5px;
+    border-width: 0 1px 1px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    left: -9999px;
+    overflow: hidden;
+    position: absolute;
+    top: -9999px;
+    z-index: 2;
+
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+
+    /*-moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+
+    -moz-transition: -moz-transform 0.1s linear;
+    -ms-transition: -ms-transform 0.1s linear;
+    -o-transition: -o-transform 0.1s linear;
+    -webkit-transition: -webkit-transform 0.1s linear;
+    transition: transform 0.1s linear;*/
+}
+#nav li {
+    background: url('menu_line.png') no-repeat scroll right 5px transparent;
+    float: left;
+    position: relative;
+}
+#nav li a {
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-weight: normal;
+    height: 30px;
+    padding: 23px 20px 0;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #000000;
+}
+#nav li:hover > a {
+    color: #00B4FF;
+}
+#nav li:hover, #nav a:focus, #nav a:hover, #nav a:active {
+    background: none repeat scroll 0 0 #121212;
+    outline: 0 none;
+}
+#nav li:hover ul.subs {
+    left: 0;
+    top: 53px;
+    width: 180px;
+
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+}
+#nav ul li {
+    background: none;
+    width: 100%;
+}
+#nav ul li a {
+    float: none;
+}
+#nav ul li:hover > a {
+    background-color: #121212;
+    color: #00B4FF;
+}
+#lavalamp {
+    background: url('lavalamp.png') no-repeat scroll 0 0 transparent;
+    height: 16px;
+    left: 13px;
+    position: absolute;
+    top: 0px;
+    width: 64px;
+
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+#lavalamp:hover {
+    -moz-transition-duration: 3000s;
+    -ms-transition-duration: 3000s;
+    -o-transition-duration: 3000s;
+    -webkit-transition-duration: 3000s;
+    transition-duration: 3000s;
+}
+
+#nav li:nth-of-type(1):hover ~ #lavalamp {
+    left: 13px;
+}
+#nav li:nth-of-type(2):hover ~ #lavalamp {
+    left: 90px;
+}
+#nav li:nth-of-type(3):hover ~ #lavalamp {
+    left: 170px;
+}
+#nav li:nth-of-type(4):hover ~ #lavalamp {
+    left: 250px;
+}
+#nav li:nth-of-type(5):hover ~ #lavalamp {
+    left: 330px;
+}
+#nav li:nth-of-type(6):hover ~ #lavalamp {
+    left: 410px;
+}
+#nav li:nth-of-type(7):hover ~ #lavalamp {
+    left: 490px;
+}
+#nav li:nth-of-type(8):hover ~ #lavalamp {
+    left: 565px;
+}
+
+ul.enlarge{
+list-style-type:none; /*remove the bullet point*/
+margin-left:0;
+}
+ul.enlarge li{
+display:inline-block; /*places the images in a line*/
+position: relative;
+z-index: 0; /*resets the stack order of the list items - later we'll increase this*/
+margin:10px 40px 0 20px;
+}
+ul.enlarge img{
+background-color:#eae9d4;
+padding: 6px;
+-webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+-moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+ul.enlarge span{
+position:absolute;
+left: -9999px;
+background-color:#eae9d4;
+padding: 10px;
+font-family: 'Droid Sans', sans-serif;
+font-size:.9em;
+text-align: center;
+color: #495a62;
+-webkit-box-shadow: 0 0 20px rgba(0,0,0, .75));
+-moz-box-shadow: 0 0 20px rgba(0,0,0, .75);
+box-shadow: 0 0 20px rgba(0,0,0, .75);
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius:8px;
+}
+ul.enlarge li:hover{
+z-index: 50;
+cursor:pointer;
+}
+ul.enlarge span img{
+padding:2px;
+background:#ccc;
+}
+ul.enlarge li:hover span{
+top: -300px; /*the distance from the bottom of the thumbnail to the top of the popup image*/
+left: -20px; /*distance from the left of the thumbnail to the left of the popup image*/
+}
+ul.enlarge li:hover:nth-child(2) span{
+left: -100px;
+}
+ul.enlarge li:hover:nth-child(3) span{
+left: -200px;
+}
+/**IE Hacks - see http://css3pie.com/ for more info on how to use CS3Pie and to download the latest version**/
+ul.enlarge img, ul.enlarge span{
+behavior: url(pie/PIE.htc);
+}

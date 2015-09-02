@@ -1,0 +1,23 @@
+$(document).ready(function(){ //cuando el html fue cargado iniciar
+
+     $('#client').live('submit',function(){
+        var params={};
+        params.action='saveClient';
+        params.id=$('#id').val();
+        params.nombre=$('#nombre').val();
+        params.apellido=$('#apellido').val();
+        params.email=$('#email').val();
+        params.encrypted_password=$('#encrypted_password').val();
+        params.salt=$('#salt').val();
+        params.created_at=$('#created_at').val();
+        $.post('index.php',params,function(){
+            $('#block').hide();
+            $('#popupbox').hide();
+            $('#content').load('index.php',{action:"refreshGrid"});
+        })
+        return false;
+    })
+
+})
+
+NS={};

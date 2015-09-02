@@ -1,0 +1,23 @@
+$(document).ready(function(){ //cuando el html fue cargado iniciar
+
+     $('#client').live('submit',function(){
+        var params={};
+        params.action='saveClient';
+        params.id=$('#id').val();
+        params.nombre=$('#nombre').val();
+        params.apellido=$('#apellido').val();
+        params.empresa=$('#empresa').val();
+        params.departamento=$('#departamento').val();
+        params.n_corto=$('#n_corto').val();
+        params.n_largo=$('#n_largo').val();
+        $.post('index.php',params,function(){
+            $('#block').hide();
+            $('#popupbox').hide();
+            $('#content').load('index.php',{action:"refreshGrid"});
+        })
+        return false;
+    })
+
+})
+
+NS={};

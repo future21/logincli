@@ -1,0 +1,41 @@
+<div class="bar">
+    <?php echo $view->clientes[1][7];
+    if ($view->clientes[0][7]=="1") {
+        echo "<a id='new' class='button' href='javascript:void(0);'>Nuevo Cliente</a>";
+
+    } ?>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <!--<th>Password</th>
+            <th>Salt</th>-->
+            <th>Creado</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($view->clientes as $cliente):  // uso la otra sintaxis de php para templates ?>
+            <tr>
+                <td><?php echo $cliente['id'];?></td>
+                <td><?php echo $cliente['nombre'];?></td>
+                <td><?php echo $cliente['apellido'];?></td>
+                <td><?php echo $cliente['email'];?></td>
+                <!--<td><?php echo $cliente['encrypted_password'];?></td>
+                <td><?php echo $cliente['salt'];?></td>-->
+                <td><?php echo $cliente['created_at'];?></td>
+                <?php if ($view->clientes[0][7]=="1") {
+                    //if ($view->id==$cliente['id']) {
+                    echo "<td><a class='edit' href='javascript:void(0);' data-id=". $cliente['id'].">Editar</a></td>";
+                    echo "<td><a class='delete' href='javascript:void(0);' data-id=". $cliente["id"].">Borrar</a></td>";
+                    //}
+                } ?>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
